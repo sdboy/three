@@ -4,21 +4,23 @@ define([
   'require',
   'jquery',
   'three'
-], function(require, $) {
+], function(require, $, THREE) {
 
   var selfObj = {
-    'scene': null
+    'scene': null,
+    'renderer': null
   };
 
   var initScene = function() {
     selfObj.scene = new THREE.Scene();
-    var renderer = new THREE.WebGLRenderer();
-    renderer.setSzie(window.innerWidth, window.innerHeight);
-    $('body').append(renderer.domElement);
+    selfObj.renderer = new THREE.WebGLRenderer();
+    selfObj.renderer.setSize(window.innerWidth, window.innerHeight);
+    $('body').append(selfObj.renderer.domElement);
     return selfObj.scene;
   };
 
   return {
+    selfObj: selfObj,
     initScene: initScene
   };
 });

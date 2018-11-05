@@ -3,7 +3,7 @@
 define([
   'require',
   'three'
-], function(require) {
+], function(require, THREE) {
   var selfObj = {
     'camera': null
   };
@@ -14,7 +14,8 @@ define([
     return selfObj.camera;
   };
 
-  var return {
+  return {
+    selfObj: selfObj,
     createCamera: createCamera
   };
   
