@@ -13,7 +13,9 @@ define([
 
   var initScene = function() {
     selfObj.scene = new THREE.Scene();
-    selfObj.renderer = new THREE.WebGLRenderer();
+    var canvas = document.createElement( 'canvas' );
+    var context = canvas.getContext('webgl2');
+    selfObj.renderer = new THREE.WebGLRenderer({canvas: canvas, context: context});
     selfObj.renderer.setSize(window.innerWidth, window.innerHeight);
     $('body').append(selfObj.renderer.domElement);
     return selfObj.scene;
